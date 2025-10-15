@@ -1,21 +1,75 @@
 # DeepDefend
 
-> **Multi-Modal Deepfake Detection System**  
-> Detect AI-generated deepfakes in videos using computer vision and audio analysis
+> **Full-Stack Multi-Modal Deepfake Detection System**  
+> Detect AI-generated deepfakes in videos using computer vision, audio forensics, and AI-powered evidence fusion.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115.5-009688.svg)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg)](https://www.typescriptlang.org/)
+
+---
 
 ## Overview
 
-DeepDefend is a comprehensive deepfake detection system that combines **video frame analysis** and **audio analysis** to identify AI-generated synthetic media. Using machine learning models and AI-powered evidence fusion, it provides detailed, interval-by-interval analysis with explainable results.
+DeepDefend is a production-ready **deepfake detection platform** that combines:
 
-### Why DeepDefend?
+- **Video frame analysis**
+- **Audio forgery detection**
+- **LLM-powered evidence fusion**
+- **Modern interactive frontend dashboard**
+- **FastAPI backend APIs**
 
-- **Multi-Modal Analysis**: Combines video and audio detection for higher accuracy
-- **AI-Powered Fusion**: Uses LLM to generate human-readable reports
-- **Interval Breakdown**: Shows exactly which parts of the video are suspicious
-- **REST API**: Easy integration with any frontend or application
+It provides interval-by-interval explainable results with a professional UI for uploads, analytics, suspicious timestamps, and final verdict reports.
+
+---
+
+## Why DeepDefend?
+
+- **Multi-Modal Detection** – Combines video + audio evidence for stronger accuracy  
+- **Explainable AI** – Suspicious intervals, confidence scores, clear reasoning  
+- **AI Verdict Engine** – Uses Google Gemini for human-readable reports  
+- **Modern Dashboard** – Upload videos, visualize stats, review results  
+- **Scalable Architecture** – Clean frontend/backend separation  
+- **Real-World Relevance** – Solves growing deepfake misinformation threats  
+
+---
+
+## Project Structure
+
+```bash
+DeepDefend/
+├── frontend/                     # React + Vite + TypeScript
+│   ├── public/
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── analysis/
+│   │   │   ├── layout/
+│   │   │   └── sections/
+│   │   ├── lib/
+│   │   ├── pages/
+│   │   ├── store/
+│   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   └── index.css
+│   ├── package.json
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   └── vite.config.ts
+│
+├── backend/                      # FastAPI + ML Pipeline
+│   ├── analysis/
+│   ├── extraction/
+│   ├── models/
+│   ├── main.py
+│   ├── pipeline.py
+│   ├── requirements.txt
+│   ├── Dockerfile
+│   ├── start.sh
+│   └── .env.example
+│
+└── README.md
 
 ## Features
 
@@ -116,21 +170,23 @@ Video Input
 
 ## Installation
 
-### Prerequisites
+### 1.Prerequisites
 
 - Python 3.10 or higher
 - FFmpeg installed on your system
 - Google Gemini API key 
 
-### Local Setup
-
+### Quick Setup
 1. **Clone the repository**
 ```bash
 git clone https://github.com/yourusername/deepdefend.git
 ```
 
-2. **Create virtual environment**
+### 2.Backend Setup
+
+1. **Create virtual environment**
 ```bash
+cd backend
 python -m venv venv
 
 # On Linux/Mac
@@ -140,27 +196,41 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-3. **Install dependencies**
+2. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Download ML models**
+3. **Download ML models**
 ```bash
 python models/download_model.py
 ```
 *This will download ~2GB of models from Hugging Face*
 
-5. **Configure environment**
+4. **Configure environment**
 ```bash
 cp .env.example .env
 # Edit .env and add your GOOGLE_API_KEY
 ```
 
-6. **Run the server**
+5. **Run the server**
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --reload --port 8000
 ```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+# Create .env.local:
+echo "VITE_API_URL=http://localhost:8000" > .env.local
+npm run dev
+```
+
+Frontend runs at **http://localhost:5173**  
+Backend runs at **http://localhost:8000**  
+API Docs at **http://localhost:8000/docs**
 
 The API will be available at `http://127.0.0.1:8000`
 
@@ -168,21 +238,46 @@ The API will be available at `http://127.0.0.1:8000`
 
 ```bash
 # Build image
+cd backend
 docker build -t deepdefend .
-
+cd backend
 # Run container
 docker run -p 8000:8000 -e GOOGLE_API_KEY=your_key deepdefend
 ```
 
+## Environment Variables
+
+### 1.Backend/.env
+```bash
+GOOGLE_API_KEY=your_api_key
+```
+
+### 2.Frontend/.env.local
+```bash
+VITE_API_URL=http://localhost:8000
+```
+
 ## Tech Stack
 ### Frontend
-- **Frameworks** : Next.js
+- **Frameworks** : React 18, TypeScript
+- **Build Tool** : Vite 
+- **UI Design** : Tailwind CSS 
+- **Animations** : GSAP, Framer Motion
+- **State Management** : Zustand 
+- **API** : Axios 
+- **Data Visualization** : Recharts 
+- **File Upload** : React Dropzone 
   
 ### Backend
-- **Framework**: FastAPI 0.109.0
+- **Language**: Python
+- **Framework**: FastAPI
 - **Server**: Uvicorn
-- **ML Framework**: PyTorch 2.3.1
-- **Transformers**: Hugging Face Transformers 4.36.2
+- **ML Framework**: PyTorch
+- **Transformers**: Hugging Face Transformers
+- **LLM Integration**: Google Gemini API
+- **Computer Vision**: OpenCV
+- **Audio Processing**: Librosa
+- **Media Processing**: FFmpeg
 
 ### ML Models
 - **Video Detection**: [Shift247/DeepDefend](https://huggingface.co/Shift247/DeepDefend)
@@ -226,3 +321,22 @@ deepdefend/
 ├── .gitignore
 └── README.md
 ```
+
+## Future Improvements
+
+- Real-time webcam deepfake detection  
+- Browser extension for fake media alerts  
+- User authentication system  
+- PDF report exports  
+- Batch media scanning  
+- Model benchmark dashboard  
+- Admin analytics portal
+
+## 💻 Built By
+
+| Avatar | Contributor |
+|--------|-------------|
+| <img src="https://github.com/bhavika0328.png" width="70" /> | [bhavika0328](https://github.com/bhavika0328) |
+| <img src="https://github.com/itsojaylicious.png" width="70" /> | [itsojaylicious](https://github.com/itsojaylicious) |
+| <img src="https://github.com/AmanJ925.png" width="70" /> | [AmanJ925](https://github.com/AmanJ925) |
+| <img src="https://github.com/ayushcod-lang.png" width="70" /> | [ayushcod-lang](https://github.com/ayushcod-lang) |
