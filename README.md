@@ -95,39 +95,35 @@ DeepDefend/
 
 ### Processing Pipeline
 
-```
+```bash
+DeepDefend Detection Flow
+
 Video Upload
-     │
-     ▼
-Media Extraction
- ├── Extract Frames
- └── Extract Audio
-     │
-     ▼
-┌───────────────────────────────┐
-│ Parallel Multi-Modal Analysis │
-└───────────────────────────────┘
-     ├── Video Analysis
-     │   ├── Face Detection
-     │   ├── Region Scan
-     │   └── Frame Scores
-     │
-     ├── Audio Analysis
-     │   ├── Spectrogram Features
-     │   ├── Voice Synthesis Detection
-     │   └── Artifact Detection
-     │
-     └── Timeline Generator
-         └── Suspicious Intervals
-     │
-     ▼
-LLM Fusion Engine (Google Gemini)
- ├── Combine Evidence
- ├── Explain Findings
- └── Generate Verdict
-     │
-     ▼
-Final JSON Report
+│
+├── Media Extraction
+│   ├── Extract Frames
+│   └── Extract Audio
+│
+├── Parallel Analysis
+│   ├── Video Analysis
+│   │   ├── Face Detection
+│   │   ├── Region Scan
+│   │   └── Frame Scores
+│   │
+│   ├── Audio Analysis
+│   │   ├── Spectrogram Features
+│   │   ├── Voice Synthesis Detection
+│   │   └── Artifact Detection
+│   │
+│   └── Timeline Generator
+│       └── Suspicious Intervals
+│
+├── LLM Fusion Engine (Google Gemini)
+│   ├── Combine Evidence
+│   ├── Explain Findings
+│   └── Generate Verdict
+│
+└── Final JSON Report
 ```
 
 ## Demo
