@@ -70,6 +70,7 @@ DeepDefend/
 │   └── .env.example
 │
 └── README.md
+```
 
 ## Features
 
@@ -95,7 +96,7 @@ DeepDefend/
 
 ### Processing Pipeline
 
-
+```bash
 DeepDefend Detection Flow
 
 Video Upload
