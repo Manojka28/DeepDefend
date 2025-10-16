@@ -96,33 +96,38 @@ DeepDefend/
 ### Processing Pipeline
 
 ```
-Video Input
-    ↓
-┌───────────────────┐
-│ Media Extraction  │ → Extract frames (5 per interval)
-│                   │ → Extract audio chunks
-└────────┬──────────┘
-         │
-         ├──────────────────────┬──────────────────────┐
-         ▼                      ▼                      ▼
-┌─────────────────┐   ┌─────────────────┐   ┌────────────────┐
-│ Video Analysis  │   │ Audio Analysis  │   │ Timeline Gen   │
-│ • Face detect   │   │ • Spectrogram   │   │ • 2s intervals │
-│ • Region scan   │   │ • Voice synth   │   │ • Metadata     │
-│ • Fake score    │   │ • Artifacts     │   │                │
-└────────┬────────┘   └────────┬────────┘   └────────┬───────┘
-         │                     │                     │
-         └──────────────┬──────────────┬─────────────┘
-                        ▼              ▼
-                ┌──────────────────────────┐
-                │   LLM Fusion Engine      │
-                │ • Combine evidence       │
-                │ • Generate verdict       │
-                │ • Natural language report│
-                └────────────┬─────────────┘
-                             ▼
-                      Final Report
-                    (JSON Response)
+Video Upload
+     │
+     ▼
+Media Extraction
+ ├── Extract Frames
+ └── Extract Audio
+     │
+     ▼
+┌───────────────────────────────┐
+│ Parallel Multi-Modal Analysis │
+└───────────────────────────────┘
+     ├── Video Analysis
+     │   ├── Face Detection
+     │   ├── Region Scan
+     │   └── Frame Scores
+     │
+     ├── Audio Analysis
+     │   ├── Spectrogram Features
+     │   ├── Voice Synthesis Detection
+     │   └── Artifact Detection
+     │
+     └── Timeline Generator
+         └── Suspicious Intervals
+     │
+     ▼
+LLM Fusion Engine (Google Gemini)
+ ├── Combine Evidence
+ ├── Explain Findings
+ └── Generate Verdict
+     │
+     ▼
+Final JSON Report
 ```
 
 ## Demo
@@ -334,9 +339,34 @@ deepdefend/
 
 ## 💻 Built By
 
-| Avatar | Contributor |
-|--------|-------------|
-| <img src="https://github.com/bhavika0328.png" width="70" /> | [bhavika0328](https://github.com/bhavika0328) |
-| <img src="https://github.com/itsojaylicious.png" width="70" /> | [itsojaylicious](https://github.com/itsojaylicious) |
-| <img src="https://github.com/AmanJ925.png" width="70" /> | [AmanJ925](https://github.com/AmanJ925) |
-| <img src="https://github.com/ayushcod-lang.png" width="70" /> | [ayushcod-lang](https://github.com/ayushcod-lang) |
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/bhavika0328">
+<img src="https://github.com/bhavika0328.png" width="90px;" alt="bhavika0328"/><br />
+<sub><b>bhavika0328</b></sub>
+</a>
+</td>
+
+<td align="center">
+<a href="https://github.com/itsojaylicious">
+<img src="https://github.com/itsojaylicious.png" width="90px;" alt="itsojaylicious"/><br />
+<sub><b>itsojaylicious</b></sub>
+</a>
+</td>
+
+<td align="center">
+<a href="https://github.com/AmanJ925">
+<img src="https://github.com/AmanJ925.png" width="90px;" alt="AmanJ925"/><br />
+<sub><b>AmanJ925</b></sub>
+</a>
+</td>
+
+<td align="center">
+<a href="https://github.com/ayushcod-lang">
+<img src="https://github.com/ayushcod-lang.png" width="90px;" alt="ayushcod-lang"/><br />
+<sub><b>ayushcod-lang</b></sub>
+</a>
+</td>
+</tr>
+</table>
