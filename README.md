@@ -95,7 +95,7 @@ DeepDefend/
 
 ### Processing Pipeline
 
-```bash
+
 DeepDefend Detection Flow
 
 Video Upload
