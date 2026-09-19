@@ -341,7 +341,7 @@ deepdefend/
 
 <td align="center">
 <a href="https://github.com/Manojka28">
-<img src="https://github.com/-lang.png" width="90px;" alt="ayushcod-lang"/><br />
+<img src="manoj.png" width="90px;" alt="ayushcod-lang"/><br />
 <sub><b>Manojka28</b></sub>
 </a>
 </td>
