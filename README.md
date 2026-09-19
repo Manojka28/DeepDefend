@@ -337,33 +337,12 @@ deepdefend/
 ## 💻 Built By
 
 <table>
-<tr>
-<td align="center">
-<a href="https://github.com/bhavika0328">
-<img src="https://github.com/bhavika0328.png" width="90px;" alt="bhavika0328"/><br />
-<sub><b>bhavika0328</b></sub>
-</a>
-</td>
+
 
 <td align="center">
-<a href="https://github.com/itsojaylicious">
-<img src="https://github.com/itsojaylicious.png" width="90px;" alt="itsojaylicious"/><br />
-<sub><b>itsojaylicious</b></sub>
+<a href="https://github.com/Manojka28">
+<img src="https://github.com/-lang.png" width="90px;" alt="ayushcod-lang"/><br />
+<sub><b>Manojka28</b></sub>
 </a>
 </td>
-
-<td align="center">
-<a href="https://github.com/AmanJ925">
-<img src="https://github.com/AmanJ925.png" width="90px;" alt="AmanJ925"/><br />
-<sub><b>AmanJ925</b></sub>
-</a>
-</td>
-
-<td align="center">
-<a href="https://github.com/ayushcod-lang">
-<img src="https://github.com/ayushcod-lang.png" width="90px;" alt="ayushcod-lang"/><br />
-<sub><b>ayushcod-lang</b></sub>
-</a>
-</td>
-</tr>
 </table>
